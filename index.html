@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <title>BG Remover Pro — Удаление фона с фото онлайн бесплатно</title>
 <meta name="description" content="Удалите фон с изображения за секунды. Бесплатно, без регистрации, всё работает в браузере. Поддержка PNG, JPG, WebP.">
 <meta property="og:title" content="BG Remover Pro — Удаление фона с фото онлайн бесплатно">
@@ -12,67 +12,85 @@
 :root{--bg:#0f172a;--card:#1e293b;--acc:#3b82f6;--acc-h:#2563eb;--acc-a:#1d4ed8;--tx:#f1f5f9;--tx2:#94a3b8;--ok:#10b981;--err:#ef4444;--track:#334155;--line:#334155;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 :root[data-theme="light"]{--bg:#f8fafc;--card:#fff;--tx:#0f172a;--tx2:#475569;--track:#cbd5e1;--line:#e2e8f0}
 @media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f8fafc;--card:#fff;--tx:#0f172a;--tx2:#475569;--track:#cbd5e1;--line:#e2e8f0}}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
-*,*::before,*::after{box-sizing:inherit}
-body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 Inter,"SF Pro Display",system-ui,sans-serif}
-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;background:var(--bg);border-bottom:1px solid var(--line)}
-.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px}
-button,.btn{font:inherit;cursor:pointer;height:48px;padding:0 24px;border-radius:8px;border:1px solid var(--acc);background:var(--acc);color:#fff;transition:background .2s,color .2s}
-button:hover{background:var(--acc-h)}button:active{background:var(--acc-a)}
-button.sec{background:transparent;color:var(--acc)}button.sec:hover{background:rgba(59,130,246,.12)}
-button.sm{height:36px;padding:0 14px}
-button:disabled{opacity:.5;cursor:not-allowed}
+html{scroll-padding-top:env(safe-area-inset-top,0px);-webkit-text-size-adjust:100%}
+*,*::before,*::after{box-sizing:inherit;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 Inter,"SF Pro Display",system-ui,sans-serif;overflow-x:hidden}
+header{position:sticky;top:0;z-index:50;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;background:var(--bg);border-bottom:1px solid var(--line);backdrop-filter:blur(8px);background:rgba(15,23,42,0.9)}
+:root[data-theme="light"] header, :root:not([data-theme="dark"]) header {background:rgba(248,250,252,0.9)}
+.logo{display:flex;align-items:center;gap:8px;font-weight:700;font-size:18px;white-space:nowrap}
+button,.btn{font:inherit;cursor:pointer;height:48px;padding:0 20px;border-radius:10px;border:1px solid var(--acc);background:var(--acc);color:#fff;transition:background .2s,color .2s;display:inline-flex;align-items:center;justify-content:center}
+button:active{background:var(--acc-a);transform:scale(0.98)}
+button.sec{background:transparent;color:var(--acc);border-color:transparent}button.sec:hover{background:rgba(59,130,246,.12)}
+button.sm{height:40px;padding:0 16px;font-size:14px}
+button:disabled{opacity:.5;cursor:not-allowed;transform:none}
 :focus-visible{outline:3px solid #93c5fd;outline-offset:2px}
-main{max-width:1200px;margin:0 auto;padding:32px 24px}
-h1{font-size:32px;line-height:1.2;margin:0 0 8px;text-align:center}
+main{max-width:1200px;margin:0 auto;padding:24px 16px}
+h1{font-size:28px;line-height:1.2;margin:0 0 8px;text-align:center}
 h2{font-size:18px;margin:0 0 12px}
-.sub{color:var(--tx2);text-align:center;margin:0 0 32px}
-#drop,:is(#cdrop,#viddrop,#auddrop){width:600px;max-width:100%;height:400px;margin:0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding:24px;border:2px dashed var(--acc);border-radius:16px;cursor:pointer;color:var(--tx2);transition:background .2s,border-style .2s}
+.sub{color:var(--tx2);text-align:center;margin:0 0 24px;font-size:15px}
+#drop,:is(#cdrop,#viddrop,#auddrop){width:100%;max-width:500px;height:280px;margin:0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding:24px;border:2px dashed var(--acc);border-radius:16px;cursor:pointer;color:var(--tx2);transition:background .2s,border-style .2s}
 #drop:hover,#drop.over,:is(#cdrop,#viddrop,#auddrop):hover,:is(#cdrop,#viddrop,#auddrop).over{border-style:solid;background:rgba(59,130,246,.08)}
-#drop svg,:is(#cdrop,#viddrop,#auddrop) svg{width:56px;height:56px;stroke:var(--acc)}
-.app{display:none;grid-template-columns:40% 1fr;gap:24px}
+#drop svg,:is(#cdrop,#viddrop,#auddrop) svg{width:48px;height:48px;stroke:var(--acc)}
+.app{display:none;grid-template-columns:1fr;gap:20px}
 .app.on{display:grid}
-.card{background:var(--card);border-radius:12px;padding:24px;box-shadow:0 4px 6px rgba(0,0,0,.1)}
-.card+.card{margin-top:24px}
-label{display:block;margin:16px 0 4px;font-size:14px;color:var(--tx2)}
-label output{float:right;color:var(--tx)}
-input[type=range]{width:100%;accent-color:var(--acc)}
-input[type=number],select,input[type=text],input[type=email],input[type=password]{font:inherit;background:var(--bg);color:var(--tx);border:1px solid var(--track);border-radius:8px;height:40px;padding:0 10px;width:100%}
-input[type=color]{height:40px;width:56px;border:1px solid var(--track);border-radius:8px;background:none;padding:2px}
+.card{background:var(--card);border-radius:16px;padding:20px;box-shadow:0 4px 6px rgba(0,0,0,.05)}
+.card+.card{margin-top:20px}
+label{display:block;margin:16px 0 6px;font-size:14px;color:var(--tx2);font-weight:500}
+label output{float:right;color:var(--tx);font-weight:600}
+input[type=range]{width:100%;height:40px;accent-color:var(--acc);cursor:pointer}
+input[type=number],select,input[type=text],input[type=email],input[type=password]{font:inherit;background:var(--bg);color:var(--tx);border:1px solid var(--track);border-radius:10px;height:48px;padding:0 12px;width:100%;-webkit-appearance:none}
+input[type=color]{height:48px;width:100%;border:1px solid var(--track);border-radius:10px;background:none;padding:4px;cursor:pointer}
 .row{display:flex;gap:8px;align-items:center}
-#orig{width:100%;border-radius:8px;display:block}
-#stage{position:relative;overflow:hidden;border-radius:8px;user-select:none;touch-action:none;background:repeating-conic-gradient(#94a3b8 0 25%,#cbd5e1 0 50%) 0 0/20px 20px}
+/* Горизонтальная прокрутка для панелей инструментов на телефоне */
+.scroll-row{overflow-x:auto;flex-wrap:nowrap;padding-bottom:8px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.scroll-row::-webkit-scrollbar{display:none}
+.scroll-row > *{flex-shrink:0}
+#orig{width:100%;border-radius:12px;display:block}
+#stage{position:relative;overflow:hidden;border-radius:12px;user-select:none;touch-action:none;background:repeating-conic-gradient(#94a3b8 0 25%,#cbd5e1 0 50%) 0 0/20px 20px;width:100%;min-height:300px}
 #stage canvas{display:block;width:100%;height:auto}
 #cv-after{position:absolute;inset:0;width:100%;height:100%;visibility:hidden;background:repeating-conic-gradient(#94a3b8 0 25%,#cbd5e1 0 50%) 0 0/20px 20px}
 #stage #ov{position:absolute;inset:0;height:100%;pointer-events:none}
 #cv-before{visibility:visible}
 #cmp{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
-#bar{position:absolute;top:0;bottom:0;width:3px;background:#fff;box-shadow:0 0 6px rgba(0,0,0,.5);pointer-events:none}
-.tabs{display:none;gap:8px;margin-bottom:12px}
-#msg{min-height:24px;margin:12px 0 0;font-size:14px}
+#bar{position:absolute;top:0;bottom:0;width:4px;background:#fff;box-shadow:0 0 8px rgba(0,0,0,.5);pointer-events:none;border-radius:2px}
+.tabs{display:flex;gap:8px;margin-bottom:12px}
+#msg{min-height:24px;margin:12px 0 0;font-size:14px;text-align:center}
 #msg.err{color:var(--err)}#msg.ok{color:var(--ok)}
 .prog{height:8px;background:var(--track);border-radius:4px;overflow:hidden;display:none;margin-top:12px}
 .prog i{display:block;height:100%;width:0;background:var(--acc);transition:width .1s}
-footer{border-top:1px solid var(--line);min-height:80px;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--tx2);padding:16px;font-size:14px}
-@media (max-width:1199px){.app{grid-template-columns:1fr}#drop{width:500px;height:350px}}
-@media (max-width:767px){h1{font-size:26px}button{width:100%}.row button{width:auto}.tabs{display:flex}#bar,#cmp{display:none}main{padding:24px 16px}#drop{height:300px}}
+footer{border-top:1px solid var(--line);min-height:80px;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--tx2);padding:24px 16px;font-size:14px}
+
+/* Мобильная адаптация */
+@media (max-width: 767px) {
+  .logo span { display: none; }
+  header { padding: 0 12px; }
+  h1 { font-size: 24px; }
+  main { padding: 16px 12px; }
+  #drop { height: 240px; }
+  .card { padding: 16px; border-radius: 12px; }
+  .tabs { display: flex; } /* На телефоне вкладки До/После всегда видны */
+  #bar, #cmp { display: none !important; } /* Скрываем слайдер сравнения на телефоне, оставляем только вкладки */
+  .nav { gap: 2px; }
+  .nav button { height: 40px; padding: 0 12px; font-size: 14px; }
+}
+
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 [hidden]{display:none!important}
 .nav{display:flex;gap:4px}
-.nav button{height:36px;padding:0 16px;background:transparent;border:0;color:var(--tx2)}
+.nav button{height:36px;padding:0 16px;background:transparent;border:0;color:var(--tx2);border-radius:8px}
 .nav button:hover{background:var(--card);color:var(--tx)}
 .nav button[aria-current=page]{background:var(--card);color:var(--tx);font-weight:600}
 :is(#cdrop,#viddrop,#auddrop){height:200px;width:100%;max-width:none}
-.crow{display:flex;gap:12px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}
+.crow{display:flex;gap:12px;align-items:center;padding:12px 0;border-top:1px solid var(--line)}
 .crow .n{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .crow .i{color:var(--tx2);font-size:14px}
 .crow button{width:auto}
-.cset{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;align-items:end}
-@media (max-width:767px){.nav button{width:auto;padding:0 10px}.logo span{display:none}header{padding:0 12px}}
+.cset{display:grid;grid-template-columns:1fr;gap:16px;align-items:end}
+@media (min-width: 600px) { .cset { grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); } }
 #zw{position:relative;transform-origin:0 0}
 #cv-bg{position:absolute;inset:0;width:100%;height:100%;visibility:hidden}
 #stage #cv-bg{height:100%}
-#zl{min-width:48px;text-align:center;font-size:14px;color:var(--tx2)}
+#zl{min-width:48px;text-align:center;font-size:14px;color:var(--tx2);font-variant-numeric:tabular-nums}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lamejs/1.2.1/lame.min.js"></script>
@@ -83,8 +101,8 @@ footer{border-top:1px solid var(--line);min-height:80px;display:flex;align-items
 <body>
 <header>
   <div class="logo"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"/></svg><span>BG Remover Pro</span></div>
-  <nav class="nav" aria-label="Разделы"><button id="n-bg" aria-current="page">Удаление фона</button><button id="n-conv" aria-current="false">Конвертер</button></nav>
-  <div class="row"><button class="sec sm" id="accbtn">Профиль</button><button class="sec sm" id="theme" aria-label="Переключить тему">Тема</button></div>
+  <nav class="nav" aria-label="Разделы"><button id="n-bg" aria-current="page">Фон</button><button id="n-conv" aria-current="false">Конвертер</button></nav>
+  <div class="row"><button class="sec sm" id="accbtn">Профиль</button><button class="sec sm" id="theme" aria-label="Переключить тему">🌓</button></div>
 </header>
 <main id="v-bg">
   <section id="hero">
@@ -94,11 +112,11 @@ footer{border-top:1px solid var(--line);min-height:80px;display:flex;align-items
   </section>
   <div id="drop" tabindex="0" role="button" aria-label="Загрузить изображение">
     <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg>
-    <div>Перетащите изображение сюда или нажмите для выбора</div>
-    <small>JPG, PNG, WebP · до 10 МБ · можно вставить через Ctrl+V</small>
+    <div style="font-weight:600;color:var(--tx)">Нажмите или перетащите фото</div>
+    <small>JPG, PNG, WebP · до 10 МБ</small>
     <input type="file" id="file" accept="image/jpeg,image/png,image/webp,.heic" hidden>
   </div>
-  <p id="msg" role="status" aria-live="polite" style="text-align:center"></p>
+  <p id="msg" role="status" aria-live="polite"></p>
 
   <div class="app" id="app">
     <div>
@@ -109,16 +127,30 @@ footer{border-top:1px solid var(--line);min-height:80px;display:flex;align-items
         <input type="range" id="tol" min="5" max="100" value="40">
         <label>Сглаживание краёв <output id="o-fea">2 px</output></label>
         <input type="range" id="fea" min="0" max="10" value="2">
-        <div class="row" style="margin-top:20px"><button id="run" style="flex:1">Обработать</button><button class="sec" id="reset">Сбросить</button></div>
+        <div class="row" style="margin-top:20px"><button id="run" style="flex:1">Обработать</button><button class="sec" id="reset">Сброс</button></div>
         <div class="prog" id="prog"><i></i></div>
       </div>
     </div>
     <div>
       <div class="card">
         <h2>До / После</h2>
-        <div class="tabs"><button class="sec sm" id="t-b">До</button><button class="sm" id="t-a">После</button></div>
-        <div class="row" style="margin-bottom:12px;flex-wrap:wrap"><button class="sm" id="b-off">Слайдер</button><button class="sm sec" id="b-res">Кисть: вернуть</button><button class="sm sec" id="b-era">Кисть: стереть</button><button class="sm sec" id="b-las">Лассо</button><button class="sm sec" id="b-hand">Рука</button><input type="range" id="bs" min="5" max="120" value="40" style="width:110px" aria-label="Размер кисти"></div>
-        <div class="row" style="margin-bottom:12px;flex-wrap:wrap"><button class="sm sec" id="b-un" aria-label="Отменить">↶ Отменить</button><button class="sm sec" id="b-re" aria-label="Вернуть">↷ Вернуть</button><button class="sm sec" id="z-out" aria-label="Уменьшить">−</button><span id="zl">100%</span><button class="sm sec" id="z-in" aria-label="Увеличить">+</button><button class="sm sec" id="z-fit">Вписать</button></div>
+        <div class="tabs"><button class="sm sec" id="t-b" style="flex:1">До</button><button class="sm" id="t-a" style="flex:1">После</button></div>
+        <div class="row scroll-row" style="margin-bottom:12px">
+          <button class="sm" id="b-off">Слайдер</button>
+          <button class="sm sec" id="b-res">Кисть +</button>
+          <button class="sm sec" id="b-era">Кисть −</button>
+          <button class="sm sec" id="b-las">Лассо</button>
+          <button class="sm sec" id="b-hand">Рука</button>
+          <input type="range" id="bs" min="5" max="120" value="40" style="width:100px" aria-label="Размер кисти">
+        </div>
+        <div class="row scroll-row" style="margin-bottom:12px">
+          <button class="sm sec" id="b-un" aria-label="Отменить">↶</button>
+          <button class="sm sec" id="b-re" aria-label="Вернуть">↷</button>
+          <button class="sm sec" id="z-out" aria-label="Уменьшить">−</button>
+          <span id="zl">100%</span>
+          <button class="sm sec" id="z-in" aria-label="Увеличить">+</button>
+          <button class="sm sec" id="z-fit">Вписать</button>
+        </div>
         <div id="stage">
           <div id="zw"><canvas id="cv-before" aria-label="До"></canvas><canvas id="cv-bg" aria-hidden="true"></canvas><canvas id="cv-after" aria-label="После"></canvas><canvas id="ov" aria-hidden="true"></canvas></div>
           <div id="bar"></div>
@@ -128,15 +160,34 @@ footer{border-top:1px solid var(--line);min-height:80px;display:flex;align-items
       <div class="card">
         <h2>Экспорт</h2>
         <label style="margin-top:0" for="bgt">Фон результата</label>
-        <div class="row" style="flex-wrap:wrap;margin-bottom:16px"><select id="bgt" style="flex:1;min-width:180px"><option value="none">Прозрачный</option><option value="white">Белый</option><option value="black">Чёрный</option><option value="g1">Градиент: синий и фиолетовый</option><option value="g2">Градиент: оранжевый и жёлтый</option><option value="dots">Точки</option><option value="color">Свой цвет</option><option value="img">Своё изображение</option></select><input type="color" id="bgt-c" value="#3b82f6" style="display:none" aria-label="Цвет фона"><button class="sm sec" id="bgf-b" style="display:none">Выбрать фото</button><input type="file" id="bgf" accept="image/jpeg,image/png,image/webp" hidden></div>
-        <div class="row">
-          <div style="flex:1"><label style="margin-top:0">Формат</label>
-            <select id="fmt"><option value="png">PNG (прозрачный)</option><option value="jpg">JPG</option><option value="webp">WebP</option></select></div>
-          <div><label style="margin-top:0">Фон для JPG</label><div class="row"><input type="color" id="bgc" value="#ffffff" aria-label="Цвет фона"><input type="text" id="hex" value="#ffffff" maxlength="7" style="width:96px" aria-label="HEX"></div></div>
+        <div class="row" style="flex-wrap:wrap;margin-bottom:16px">
+          <select id="bgt" style="flex:1;min-width:140px">
+            <option value="none">Прозрачный</option>
+            <option value="white">Белый</option>
+            <option value="black">Чёрный</option>
+            <option value="g1">Градиент 1</option>
+            <option value="g2">Градиент 2</option>
+            <option value="dots">Точки</option>
+            <option value="color">Свой цвет</option>
+            <option value="img">Своё фото</option>
+          </select>
+          <input type="color" id="bgt-c" value="#3b82f6" style="display:none;width:48px;padding:2px" aria-label="Цвет фона">
+          <button class="sm sec" id="bgf-b" style="display:none">Фото</button>
+          <input type="file" id="bgf" accept="image/jpeg,image/png,image/webp" hidden>
+        </div>
+        <div class="row" style="flex-wrap:wrap;gap:16px">
+          <div style="flex:1;min-width:120px">
+            <label style="margin-top:0">Формат</label>
+            <select id="fmt"><option value="png">PNG</option><option value="jpg">JPG</option><option value="webp">WebP</option></select>
+          </div>
+          <div style="flex:1;min-width:120px">
+            <label style="margin-top:0">Фон для JPG</label>
+            <div class="row"><input type="color" id="bgc" value="#ffffff" style="width:48px;padding:2px"><input type="text" id="hex" value="#ffffff" maxlength="7" style="width:100px" aria-label="HEX"></div>
+          </div>
         </div>
         <label>Качество <output id="o-q">90%</output></label>
         <input type="range" id="q" min="10" max="100" value="90">
-        <button id="dl" style="margin-top:20px" disabled>Скачать</button>
+        <button id="dl" style="margin-top:20px;width:100%;height:56px;font-size:18px;font-weight:600" disabled>Скачать результат</button>
       </div>
     </div>
   </div>
@@ -144,11 +195,15 @@ footer{border-top:1px solid var(--line);min-height:80px;display:flex;align-items
 <main id="v-conv" hidden>
   <h1>Конвертер файлов</h1>
   <p class="sub">Изображения, видео и музыка. Файлы не покидают ваш браузер.</p>
-  <div class="nav" id="ctabs" style="justify-content:center;margin-bottom:24px"><button id="ct-img" aria-current="page">Изображения</button><button id="ct-vid" aria-current="false">Видео</button><button id="ct-aud" aria-current="false">Музыка</button></div>
+  <div class="nav" id="ctabs" style="justify-content:center;margin-bottom:24px;background:var(--card);padding:4px;border-radius:12px;display:inline-flex;width:100%">
+    <button id="ct-img" aria-current="page" style="flex:1">Фото</button>
+    <button id="ct-vid" aria-current="false" style="flex:1">Видео</button>
+    <button id="ct-aud" aria-current="false" style="flex:1">Звук</button>
+  </div>
   <div id="p-img">
   <div id="cdrop" tabindex="0" role="button" aria-label="Добавить файлы">
     <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg>
-    <div>Перетащите файлы сюда или нажмите для выбора</div>
+    <div style="font-weight:600;color:var(--tx)">Добавить файлы</div>
     <small>До 20 файлов, каждый до 10 МБ</small>
     <input type="file" id="cfile" accept="image/jpeg,image/png,image/webp,.heic,.heif" multiple hidden>
   </div>
@@ -156,11 +211,15 @@ footer{border-top:1px solid var(--line);min-height:80px;display:flex;align-items
   <div class="card">
     <div class="cset">
       <div><label style="margin-top:0" for="cfmt">Конвертировать в</label><select id="cfmt"><option value="png">PNG</option><option value="jpg">JPG</option><option value="webp">WebP</option></select></div>
-      <div><label style="margin-top:0" for="csz">Размер</label><select id="csz"><option value="0">Оригинал</option><option value="1920">Ширина до 1920 px</option><option value="1280">Ширина до 1280 px</option><option value="800">Ширина до 800 px</option><option value="0.5">Уменьшить вдвое</option></select></div>
-      <div><label style="margin-top:0">Качество (JPG, WebP) <output id="o-cq">90%</output></label><input type="range" id="cq" min="10" max="100" value="90"></div>
-      <div><label style="margin-top:0" for="cbg">Фон для JPG</label><input type="color" id="cbg" value="#ffffff"></div>
+      <div><label style="margin-top:0" for="csz">Размер</label><select id="csz"><option value="0">Оригинал</option><option value="1920">до 1920 px</option><option value="1280">до 1280 px</option><option value="800">до 800 px</option><option value="0.5">Вдвое меньше</option></select></div>
+      <div><label style="margin-top:0">Качество <output id="o-cq">90%</output></label><input type="range" id="cq" min="10" max="100" value="90"></div>
+      <div><label style="margin-top:0" for="cbg">Фон для JPG</label><input type="color" id="cbg" value="#ffffff" style="width:100%;padding:4px"></div>
     </div>
-    <div class="row" style="margin-top:20px;flex-wrap:wrap"><button id="cgo" disabled>Конвертировать</button><button class="sec" id="czip" style="display:none">Скачать всё в ZIP</button><button class="sec" id="cclr">Очистить список</button></div>
+    <div class="row" style="margin-top:20px;flex-wrap:wrap">
+      <button id="cgo" disabled style="flex:1">Конвертировать</button>
+      <button class="sec" id="czip" style="display:none;flex:1">Скачать ZIP</button>
+      <button class="sec" id="cclr" style="flex:1">Очистить</button>
+    </div>
     <div id="clist" style="margin-top:16px"></div>
   </div>
   </div>
@@ -169,12 +228,12 @@ footer{border-top:1px solid var(--line);min-height:80px;display:flex;align-items
 </main>
 <main id="v-prof" hidden>
   <h1>Профиль</h1>
-  <p class="sub">Почта и пароль, настройки и история ваших действий</p>
+  <p class="sub">Настройки и история ваших действий</p>
   <p id="pstat" role="status" aria-live="polite" style="text-align:center;min-height:24px;color:var(--err)"></p>
   <div class="card" id="pcard" style="max-width:640px;margin:0 auto"></div>
-  <div class="card" id="phist" style="max-width:640px;margin:24px auto 0" hidden><h2>История</h2><div id="phl"></div><div class="row" style="margin-top:16px"><button class="sec" id="phclr">Очистить историю</button></div></div>
+  <div class="card" id="phist" style="max-width:640px;margin:24px auto 0" hidden><h2>История</h2><div id="phl"></div><div class="row" style="margin-top:16px"><button class="sec" id="phclr" style="width:100%">Очистить историю</button></div></div>
 </main>
-<footer>© 2026 BG Remover Pro. Все изображения обрабатываются локально.</footer>
+<footer>© 2026 BG Remover Pro. Все изображения обрабатываются локально на вашем устройстве.</footer>
 
 <script>
 const $=id=>document.getElementById(id);
@@ -569,12 +628,12 @@ const MEDIA={
 function mkPanel(k){
   const c=MEDIA[k],items=[];let busy=false;
   const mp4ok=typeof MediaRecorder!=='undefined'&&MediaRecorder.isTypeSupported('video/mp4');
-  $('p-'+k).innerHTML=`<div id="${k}drop" tabindex="0" role="button" aria-label="Добавить файлы"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg><div>${c.drop}</div><small>${c.small}</small><input type="file" id="${k}file" accept="${c.accept}" multiple hidden></div>
+  $('p-'+k).innerHTML=`<div id="${k}drop" tabindex="0" role="button" aria-label="Добавить файлы"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg><div style="font-weight:600;color:var(--tx)">${c.drop}</div><small>${c.small}</small><input type="file" id="${k}file" accept="${c.accept}" multiple hidden></div>
 <p id="${k}msg" role="status" aria-live="polite" style="text-align:center;min-height:24px"></p>
-<div class="card"><div class="cset"><div><label style="margin-top:0" for="${k}fmt">Конвертировать в</label><select id="${k}fmt">${c.fmts.map(([v,t])=>`<option value="${v}"${v==='mp4'&&!mp4ok?' disabled':''}>${t}${v==='mp4'&&!mp4ok?' (недоступно в этом браузере)':''}</option>`).join('')}</select></div>
+<div class="card"><div class="cset"><div><label style="margin-top:0" for="${k}fmt">Конвертировать в</label><select id="${k}fmt">${c.fmts.map(([v,t])=>`<option value="${v}"${v==='mp4'&&!mp4ok?' disabled':''}>${t}${v==='mp4'&&!mp4ok?' (недоступно)':''}</option>`).join('')}</select></div>
 <div><label style="margin-top:0" for="${k}q">${c.ql}</label><select id="${k}q">${c.q.map(([v,t])=>`<option value="${v}"${v===c.qd?' selected':''}>${t}</option>`).join('')}</select></div></div>
 <p style="color:var(--tx2);font-size:14px;margin:16px 0 0">${c.hint}</p>
-<div class="row" style="margin-top:20px;flex-wrap:wrap"><button id="${k}go" disabled>Конвертировать</button><button class="sec" id="${k}zip" style="display:none">Скачать всё в ZIP</button><button class="sec" id="${k}clr">Очистить список</button></div><div id="${k}list" style="margin-top:16px"></div></div>`;
+<div class="row" style="margin-top:20px;flex-wrap:wrap"><button id="${k}go" disabled style="flex:1">Конвертировать</button><button class="sec" id="${k}zip" style="display:none;flex:1">Скачать ZIP</button><button class="sec" id="${k}clr" style="flex:1">Очистить</button></div><div id="${k}list" style="margin-top:16px"></div></div>`;
   const say=(t,cl='')=>{$(k+'msg').textContent=t;$(k+'msg').className=cl};
   const draw=()=>{
     const box=$(k+'list');box.textContent='';
@@ -660,7 +719,7 @@ function renderProf(){
     c.append(el('p', 'Вы вошли по почте. Создайте профиль, и страница начнёт сохранять ваши настройки и историю. Данные видны только вам.'));
     const l = el('label', 'Как вас называть'); l.htmlFor = 'pname'; l.style.marginTop = '0'; c.append(l);
     const i = el('input'); i.type = 'text'; i.id = 'pname'; i.maxLength = 40; i.value = meName; c.append(i);
-    const b = el('button', 'Создать профиль'); b.style.marginTop = '16px';
+    const b = el('button', 'Создать профиль'); b.style.marginTop = '16px'; b.style.width='100%';
     b.onclick = async () => {
       const name = i.value.trim().slice(0, 40); if (!name) { i.focus(); return; }
       b.disabled = true;
@@ -677,15 +736,15 @@ function renderProf(){
     c.append(el('p', 'Профиль создан ' + new Date(prof.createdAt).toLocaleDateString('ru-RU') + '. Настройки и история сохраняются автоматически.'));
     const l = el('label', 'Имя в профиле'); l.htmlFor = 'pname'; l.style.marginTop = '0'; c.append(l);
     const i = el('input'); i.type = 'text'; i.id = 'pname'; i.maxLength = 40; i.value = prof.name; c.append(i);
-    const r = el('div', '', 'row'); r.style.cssText = 'margin-top:16px;flex-wrap:wrap';
-    const sv = el('button', 'Сохранить имя');
+    const r = el('div', '', 'row'); r.style.cssText = 'margin-top:16px;flex-wrap:wrap;gap:8px';
+    const sv = el('button', 'Сохранить'); sv.style.flex='1';
     sv.onclick = async () => { const n = i.value.trim().slice(0, 40); if (!n) return; try { await DB.doc(P('profile')).update({ name: n }); prof.name = n; renderProf(); } catch (e) { $('pstat').textContent = 'Не удалось сохранить имя' } };
-    const del = el('button', delArm ? 'Точно удалить? Нажмите ещё раз' : 'Удалить профиль и данные', 'sec');
+    const del = el('button', delArm ? 'Точно удалить?' : 'Удалить профиль', 'sec'); del.style.flex='1';
     del.onclick = async () => {
       if (!delArm) { delArm = true; renderProf(); return; }
       try { await Promise.all(['profile', 'settings', 'history'].map(n => DB.doc(P(n)).delete())); try { await AUTH.currentUser.delete(); } catch (e) { } prof = null; hist = []; delArm = false; renderProf(); } catch (e) { $('pstat').textContent = 'Не удалось удалить данные' }
     };
-    const out = el('button', 'Выйти', 'sec'); out.onclick = () => AUTH && AUTH.signOut(); r.append(sv, del, out); c.append(r);
+    const out = el('button', 'Выйти', 'sec'); out.style.flex='1'; out.onclick = () => AUTH && AUTH.signOut(); r.append(sv, del, out); c.append(r);
   }
 
   const h = $('phist'); h.hidden = !prof; const box = $('phl'); box.textContent = '';
@@ -724,17 +783,17 @@ function authForm(c){
   const l2 = el('label', 'Пароль (не короче 6 символов)'); l2.htmlFor = 'apw';
   const p = el('input'); p.type = 'password'; p.id = 'apw'; p.autocomplete = up ? 'new-password' : 'current-password';
 
-  const go = el('button', up ? 'Зарегистрироваться' : 'Войти'); go.style.cssText = 'margin-top:16px;display:block';
+  const go = el('button', up ? 'Зарегистрироваться' : 'Войти'); go.style.cssText = 'margin-top:16px;display:block;width:100%';
   go.onclick = () => doAuth(e.value.trim(), p.value);
   p.onkeydown = ev => { if (ev.key === 'Enter') go.click(); };
 
-  const sw = el('button', up ? 'Уже есть аккаунт? Войти' : 'Нет аккаунта? Зарегистрироваться', 'sec'); sw.style.cssText = 'margin-top:8px;display:block';
+  const sw = el('button', up ? 'Уже есть аккаунт? Войти' : 'Нет аккаунта? Зарегистрироваться', 'sec'); sw.style.cssText = 'margin-top:8px;display:block;width:100%';
   sw.onclick = () => { authMode = up ? 'in' : 'up'; pmsg(''); renderProf(); };
 
   c.append(l1, e, l2, p, go, sw);
 
   if (!up) {
-    const f = el('button', 'Забыли пароль?', 'sec sm'); f.style.marginTop = '8px'; f.onclick = () => resetPw(e.value.trim()); c.append(f);
+    const f = el('button', 'Забыли пароль?', 'sec sm'); f.style.marginTop = '8px'; f.style.width='100%'; f.onclick = () => resetPw(e.value.trim()); c.append(f);
   }
 }
 
@@ -746,7 +805,6 @@ async function doAuth(email, pw) {
   try {
     if (authMode === 'up') {
       const userCred = await AUTH.createUserWithEmailAndPassword(email, pw);
-      // Отправляем письмо с подтверждением, но НЕ блокируем вход
       try { await AUTH.sendEmailVerification(userCred.user); } catch(e) {}
       pmsg('Аккаунт создан! Добро пожаловать.', true);
       authMode = 'in';
